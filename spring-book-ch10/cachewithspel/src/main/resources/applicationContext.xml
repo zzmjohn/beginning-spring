@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       					   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                           http://www.springframework.org/schema/cache
+                           http://www.springframework.org/schema/cache/spring-cache-4.0.xsd">
+
+    <cache:annotation-driven />
+
+    <bean id="userService" class="com.wiley.beginningspring.ch10.UserService" />
+
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean id="users1" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+                <bean id="users2" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+                <bean id="users3" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+                <bean id="users4" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+                <bean id="users5" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+                <bean id="users6" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+                <bean id="users7" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+                <bean id="users8" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+                <bean id="users9" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+            </set>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,1 @@
+insert into account(id, owner_name,balance,access_time,locked) values(100, 'mertcaliskan',10000,CURRENT_DATE ,1);

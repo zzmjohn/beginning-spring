@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       					   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <bean id="show1" class="com.wiley.beginningspring.ch9.Show">
+        <property name="instrument" value="Piano" />
+        <property name="song" value="Turning Tables" />
+    </bean>
+
+    <bean id="show2" class="com.wiley.beginningspring.ch9.Show">
+        <property name="instrument" value="Guitar" />
+        <property name="song" value="#{show2.guitarSong()}" />
+    </bean>
+</beans>

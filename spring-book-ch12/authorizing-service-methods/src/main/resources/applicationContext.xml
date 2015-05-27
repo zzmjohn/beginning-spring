@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<security:authentication-manager>
+		<security:authentication-provider ref="testingAuthenticationProvider"/>
+	</security:authentication-manager>
+	
+	<bean id="testingAuthenticationProvider" class="org.springframework.security.authentication.TestingAuthenticationProvider"/>
+
+	<security:global-method-security secured-annotations="enabled"/>
+	
+	<bean id="businessService" class="com.wiley.beginningspring.ch12.BusinessService"/>
+</beans>

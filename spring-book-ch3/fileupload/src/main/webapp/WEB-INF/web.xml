@@ -1,0 +1,24 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+	  http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<multipart-config>
+			<location>/tmp</location>
+			<max-file-size>1048576</max-file-size>
+			<max-request-size>2097152</max-request-size>
+			<file-size-threshold>524288</file-size-threshold>
+		</multipart-config>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.mvc</url-pattern>
+	</servlet-mapping>
+
+</web-app>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       					   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+       					   http://www.springframework.org/schema/context
+       					   http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+
+    <context:component-scan base-package="com.wiley.beginningspring.ch8" />
+    <context:annotation-config />
+
+    <bean id="executionOrderBefore" class="com.wiley.beginningspring.ch8.aspect.ExecutionOrderBefore" />
+    <bean id="executionOrderAfter" class="com.wiley.beginningspring.ch8.aspect.ExecutionOrderAfter" />
+    <bean id="executionOrderAfterFinally" class="com.wiley.beginningspring.ch8.aspect.ExecutionOrderAfterFinally" />
+    <bean id="executionOrderAround" class="com.wiley.beginningspring.ch8.aspect.ExecutionOrderAround" />
+
+    <aop:config>
+        <aop:pointcut id="executionOrderPointcut"
+                      expression="execution(public * *(..))" />
+
+        <aop:advisor advice-ref="executionOrderBefore"
+                     pointcut-ref="executionOrderPointcut" />
+
+        <aop:advisor advice-ref="executionOrderAfter"
+                     pointcut-ref="executionOrderPointcut" />
+
+        <aop:aspect ref="executionOrderAfterFinally">
+            <aop:after pointcut-ref="executionOrderPointcut" method="executionOrder" />
+        </aop:aspect>
+
+        <aop:aspect ref="executionOrderAround">
+            <aop:around pointcut-ref="executionOrderPointcut" method="executionOrder" />
+        </aop:aspect>
+
+    </aop:config>
+
+
+</beans>

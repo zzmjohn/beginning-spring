@@ -1,0 +1,1 @@
+insert into account (id,owner_name,balance,access_time,locked) values (100,'john doe',10.0,'2014-01-01',false);

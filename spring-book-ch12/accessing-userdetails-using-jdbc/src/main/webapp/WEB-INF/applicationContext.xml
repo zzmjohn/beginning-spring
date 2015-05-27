@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<jdbc:embedded-database id="dataSource" type="H2">
+		<jdbc:script execution="INIT" location="classpath:security.sql"/>
+	</jdbc:embedded-database>
+	
+	<security:jdbc-user-service data-source-ref="dataSource" id="userService"/>
+		
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="userService"/>
+	</security:authentication-manager>
+	
+	<security:http pattern="/favicon.ico" security="none"/>
+
+	<security:http auto-config="true">
+		<security:intercept-url pattern="/**" access="ROLE_USER"/>
+	</security:http>
+	
+</beans>

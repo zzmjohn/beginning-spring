@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="annotation-based-autowiring" />
+        <module name="bean-definition-override" />
+        <module name="bean-definition-profiles" />
+        <module name="bean-instantiation-methods" />
+        <module name="bean-scopes" />
+        <module name="configuring-environment" />
+        <module name="constructor-injection" />
+        <module name="java-based-autowiring" />
+        <module name="java-based-configuration" />
+        <module name="lifecycle-callback-methods" />
+        <module name="setter-injection" />
+        <module name="xml-based-autowiring" />
+        <module name="xml-based-configuration" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="annotation-based-autowiring" target="1.8" />
+      <module name="bean-definition-override" target="1.8" />
+      <module name="bean-definition-profiles" target="1.8" />
+      <module name="bean-instantiation-methods" target="1.8" />
+      <module name="bean-scopes" target="1.8" />
+      <module name="configuring-environment" target="1.8" />
+      <module name="constructor-injection" target="1.8" />
+      <module name="java-based-autowiring" target="1.8" />
+      <module name="java-based-configuration" target="1.8" />
+      <module name="lifecycle-callback-methods" target="1.8" />
+      <module name="setter-injection" target="1.8" />
+      <module name="spring-book-ch2" target="1.8" />
+      <module name="xml-based-autowiring" target="1.8" />
+      <module name="xml-based-configuration" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="loginAction" class="com.wiley.beginningspring.ch7.LoginAction" scope="request">
+		<property name="username" value="#{request.getParameter('username')}"/>
+		<property name="password" value="#{request.getParameter('password')}"/>
+		<aop:scoped-proxy/>
+	</bean>
+	
+	<bean id="userPreferences" class="com.wiley.beginningspring.ch7.UserPreferences" scope="session">
+		<property name="theme" value="#{session.getAttribute('theme')}"/>
+		<aop:scoped-proxy/>
+	</bean>
+	
+	<bean id="userService" class="com.wiley.beginningspring.ch7.UserService">
+		<property name="loginAction" ref="loginAction"/>
+		<property name="userPreferences" ref="userPreferences"/>
+	</bean>
+</beans>

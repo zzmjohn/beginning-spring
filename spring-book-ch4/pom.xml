@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.wiley.beginningspring</groupId>
+	<artifactId>spring-book-ch4</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.0.5.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.0.5.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.3.175</version>
+		</dependency>
+	</dependencies>
+	<modules>
+		<module>configuring-datasource</module>
+		<module>configuring-single-conn-datasource</module>
+		<module>embedded-db-support</module>
+		<module>pooled-datasource</module>
+		<module>initializing-db</module>
+		<module>configuring-and-using-jdbctemplate</module>
+		<module>running-queries-with-jdbctemplate</module>
+		<module>using-named-parameters</module>
+		<module>queries-with-in-clause</module>
+		<module>using-preparedstatements</module>
+		<module>inserting-updating-deleting-records</module>
+		<module>calling-storedprocedures</module>
+		<module>performing-batch-operations</module>
+		<module>handling-lob-objects</module>
+		<module>encapsulating-sql-queries</module>
+		<module>encapsulating-dml-operations</module>
+		<module>encapsulating-storedprocedures</module>
+	</modules>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+</project>

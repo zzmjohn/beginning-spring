@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="accountService" class="com.wiley.beginningspring.ch2.AccountServiceImpl">
+		<constructor-arg ref="accountDao"/>
+	</bean>
+
+	<bean id="accountDao" class="com.wiley.beginningspring.ch2.AccountDaoInMemoryImpl">
+	</bean>
+	
+	
+	<bean id="foo" class="com.wiley.beginningspring.ch2.Foo">
+		<constructor-arg ref="bar" index="0"/>
+		<constructor-arg ref="baz" index="1"/>
+	</bean>
+	
+	<bean id="bar" class="com.wiley.beginningspring.ch2.Bar"/>
+	
+	<bean id="baz" class="com.wiley.beginningspring.ch2.Baz"/>
+	
+	<bean id="foo2" class="com.wiley.beginningspring.ch2.Foo">
+		<constructor-arg ref="bar"/>
+		<property name="baz" ref="baz"/>
+	</bean>
+
+
+</beans>

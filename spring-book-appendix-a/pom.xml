@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wiley.beginningspring</groupId>
+    <artifactId>spring-book-appendix-a</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>ch1-exercise3-constructor-injection</module>
+        <module>ch1-exercise3-setter-injection</module>
+        <module>ch2-exercise1</module>
+        <module>ch2-exercise2</module>
+        <module>ch2-exercise3</module>
+        <module>ch4-exercise1</module>
+        <module>ch4-exercise2</module>
+        <module>ch4-exercise3</module>
+        <module>ch5-exercise1</module>
+        <module>ch5-exercise2</module>
+        <module>ch5-exercise3</module>
+        <module>ch6-exercise1</module>
+        <module>ch6-exercise3</module>
+        <module>ch7-exercise1</module>
+        <module>ch7-exercise2</module>
+        <module>ch7-exercise3</module>
+        <module>ch8-exercise1</module>
+        <module>ch9-exercise1</module>
+        <module>ch9-exercise2</module>
+        <module>ch10-exercise1</module>
+        <module>ch11-exercise2</module>
+        <module>ch12-exercise1</module>
+        <module>ch12-exercise2</module>
+        <module>ch12-exercise3</module>
+    </modules>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+</project>

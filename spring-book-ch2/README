@@ -1,0 +1,65 @@
+It's worth noting the maven structure of this directory. The top-level pom file
+specifies a bunch of modules, so that when you run a task (e.g. mvn package) it
+runs for all those modules. In turn, the modules specify the top-level as a parent,
+which means that the dependencies can all be shared. But the builds of the different
+modules are independent (which is good because they have namespace clashes up the wazoo lol)
+
+
+
+Section 1: the basic configuration/autowiring examples
+------------------------------------------------------
+The classes in the modules named
+ [xml/annotation/java]-based-[autowiring/configuration]
+are all identical source code, up to annotations and such. The only pure source differences are:
+  - the autowiring examples include a stubbed out AccountDaoInMemoryImpl
+  - the java-based version has an extra Ch2BeanConfiguration class
+  - the specific class used for the Context in the Main class differs
+In addition, note that
+  - the java based version doesn't have a Ch2-beans.xml, because the Ch2BeanConfiguration does
+    it all
+  - the annotation-based version does have a Ch2-beans.xml, but it's almost empty... instead of
+    beans, it just says to
+
+Note one other thing: with these simple stand-alone applications, the approach the authors chose
+was to put the xml configuration inside the classpath. This, in turn, enables the use of
+ClassPathXmlAnnotationContext in Main.java, which means that the path is relative to the root
+folder 'src/main'. This is a convenient way to avoid absolute vs relative path issues.
+
+P.S. I actually haven't managed to successfully run these examples. I built everything
+successfully by running mvn package at the top level, and wound up with a bunch of jar files,
+but java -jar JARNAME.jar didn't work (no Manifest, I guesss -- an executable jar is supposed to
+have a manifest indicating the main class), and neither did jave -cp /path/to/JARNAME.jar Main,
+which was disappointing. The target directories also include non-jar'ed class files, so I could
+probably use those.
+
+
+Section 2: the other examples that that *don't* have resources or webapp
+------------------------------------------------------------------------
+a. You should compare setter-injection to xml-based-configuration:
+    I'm actually pretty sure the authors screwed up the code here, because the source code is 100%
+    identical. But the difference is, in the xml file there are beans for the two accounts,
+    and the map in AccountDao is filled out using refs to these - all in declarative xml.
+      If they hadn't messed up, I think the AccountDaoInMemoryImpl constructor would be empty
+    instead of filling accounts out procedurally. I can't actually test this right now because I
+    haven't figured out how to run the examples. grr.
+      Note that the initial examples were already using setter injection on the higher-level
+    objects - namely they use setter injection to fill out the AccountsDao inside AccountServiceImpl
+b. Keeping the last sentence above in mind, compare the xml and the AsccountServiceImpl code
+   for xml-based-configuration with that in constructor-injection:
+   instead of setting the accountsDao explicitly either via an xml ref or autowiring, we set it
+   in the constructor.
+   .....
+   in addition to continuing with the usual example of Accounts, the authors added a toy example
+   to compare constructor and setter based injection: they create two different instances of
+   Foo, one which uses xml to inject via one of the constructors (note that they overload the constructor in
+   order to demo how xml can specify order) and one which uses setter injection.
+c. The bean-definition-override example shows that if you pass multiple configuration
+   classes and they have any name clashes in their bean tags, the last-added configuration
+   will be the one used to get that bean. Note that the syntax for adding multiple configurations
+   is just to add them to the Spring class as multiple arguments.
+d.
+
+
+Section 3. The examples that use resources and/or webapp
+--------------------------------------------------------
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+	<security:user-service id="userService">
+		<security:user name="user1" password="secret" authorities="ROLE_USER"/>
+		<security:user name="user2" password="secret" authorities="ROLE_USER,ROLE_EDITOR"/>
+	</security:user-service>
+	
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="userService"/>
+	</security:authentication-manager>
+
+	<security:http auto-config="true">
+		<security:intercept-url pattern="/**" access="ROLE_USER"/>
+		<security:session-management>
+			<security:concurrency-control error-if-maximum-exceeded="true" max-sessions="1"/>
+		</security:session-management>
+	</security:http>
+	
+</beans>
